@@ -922,14 +922,10 @@ section.active{
     font-size: 1.8rem;
 }
 
-/* Mobile menu styles */
+/* Enhanced Mobile Responsiveness */
 @media (max-width: 991px) {
     html {
         font-size: 55%;
-    }
-
-    header {
-        padding: 2rem 4%;
     }
 
     section {
@@ -939,11 +935,25 @@ section.active{
     .home {
         flex-direction: column;
         gap: 3rem;
+        padding-top: 8rem;
     }
 
     .home-img .img-box {
         width: 70vw;
         height: 70vw;
+        margin: 0 auto;
+    }
+
+    .services-container {
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+
+    .portfolio-container {
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    }
+
+    .contact-form {
+        padding: 3rem;
     }
 }
 
@@ -960,10 +970,9 @@ section.active{
         padding: 1rem 4%;
         background: var(--bg-color);
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        z-index: 999;
         transition: .25s ease;
         transition-delay: .25s;
-        flex-direction: column;
-        align-items: flex-start;
     }
 
     nav.active {
@@ -979,7 +988,6 @@ section.active{
         opacity: 0;
         transition: .25s ease;
         transition-delay: 0s;
-        text-align: center;
     }
 
     nav.active a {
@@ -988,12 +996,32 @@ section.active{
         transition-delay: .25s;
     }
 
+    .home-details h1 {
+        font-size: 4rem;
+    }
+
+    .home-details h2 {
+        font-size: 2.5rem;
+    }
+
     .home-img .img-box {
-        width: 90vw;
-        height: 90vw;
+        width: 80vw;
+        height: 80vw;
+    }
+
+    .services-box,
+    .portfolio-box {
+        margin: 1rem;
+    }
+
+    .tab-nav {
+        flex-wrap: wrap;
+    }
+
+    .resume-btn {
+        padding: 1.5rem 2rem;
     }
 }
-
 
 @media (max-width: 520px) {
     html {
@@ -1001,12 +1029,16 @@ section.active{
     }
 
     .home-details h1 {
-        font-size: 5rem;
+        font-size: 3.5rem;
+    }
+
+    .home-details h2 {
+        font-size: 2.2rem;
     }
 
     .home-img .img-box {
-        width: 100vw;
-        height: 100vw;
+        width: 90vw;
+        height: 90vw;
     }
 
     .services-container {
@@ -1017,7 +1049,53 @@ section.active{
         grid-template-columns: 1fr;
     }
 
-    .contact form {
+    .contact-form {
         padding: 2rem;
+    }
+
+    .resume-container {
+        padding: 2rem;
+    }
+
+    .resume-btn {
+        padding: 1.2rem 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    .skills .resume-list {
+        margin: 0.5rem;
+        padding: 1.5rem 2rem;
+    }
+
+    .btns {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .btns .social {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 380px) {
+    .home-details h1 {
+        font-size: 3rem;
+    }
+
+    .home-details h2 {
+        font-size: 2rem;
+    }
+
+    .home-img .img-box {
+        width: 95vw;
+        height: 95vw;
+    }
+
+    .portfolio-box {
+        padding: 2rem;
+    }
+
+    .contact-form .btn {
+        padding: 1.2rem 2.5rem;
     }
 }
