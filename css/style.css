@@ -56,10 +56,22 @@ header.active{
     }
 }
 
-.logo{
-    font-size: 3rem;
-    color: var(--white-color);
-    font-weight: 700;
+.logo {
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  transition: transform 0.3s ease;
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 nav a{
@@ -1021,6 +1033,9 @@ section.active{
     .resume-btn {
         padding: 1.5rem 2rem;
     }
+    .logo {
+    height: 3.5rem;
+  }
 }
 
 @media (max-width: 520px) {
@@ -1075,6 +1090,9 @@ section.active{
     .btns .social {
         margin-left: 0;
     }
+    .logo {
+    height: 3rem;
+  }
 }
 
 @media (max-width: 380px) {
