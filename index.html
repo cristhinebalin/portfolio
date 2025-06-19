@@ -276,7 +276,6 @@
             height: 100%;
         }
 
-
         .premium-card::before {
             content: '';
             position: absolute;
@@ -300,6 +299,11 @@
         }
 
         /* Skills Section */
+
+        #skills .row>[class*="col-"] {
+            margin-bottom: 30px;
+        }
+
         .skill-item {
             background: linear-gradient(145deg, rgba(17, 17, 17, 0.8), rgba(34, 34, 34, 0.6));
             border: 1px solid var(--border-color);
@@ -307,7 +311,6 @@
             padding: 25px;
             text-align: center;
             transition: all 0.3s ease;
-            margin-bottom: 20px;
             height: 100%;
         }
 
@@ -325,6 +328,57 @@
             background-clip: text;
             margin-bottom: 15px;
         }
+
+        .skill-item h6 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+
+            /* Disable parallax and hover animations on mobile */
+            .skill-item:hover {
+                transform: none !important;
+            }
+
+            #skills .row>[class*="col-"] {
+                margin-bottom: 25px;
+                /* Adjusted spacing for tablets */
+            }
+
+            .skill-item {
+                padding: 20px;
+            }
+
+            .skill-icon {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            #skills .row>[class*="col-"] {
+                margin-bottom: 30px;
+                /* Increased spacing for mobile */
+            }
+
+            .skill-item {
+                padding: 15px;
+            }
+
+            .skill-icon {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            #skills .row>[class*="col-"] {
+                margin-bottom: 35px;
+                /* Maximum spacing for very small screens */
+            }
+        }
+
 
         /* Project Cards */
         .project-card {
@@ -404,144 +458,6 @@
             line-height: 1.6;
         }
 
-        /* Add this CSS for the "More Projects Coming Soon" section */
-        .more-projects-card {
-            background: linear-gradient(145deg, rgba(17, 17, 17, 0.8), rgba(34, 34, 34, 0.6));
-            border: 2px dashed var(--border-color);
-            border-radius: 20px;
-            padding: 60px 40px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .more-projects-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 1px;
-            background: var(--primary-gradient);
-            animation: shimmer 2s infinite;
-        }
-
-        .more-projects-card:hover {
-            border-color: rgba(102, 126, 234, 0.5);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.1);
-        }
-
-        .upload-animation {
-            margin-bottom: 25px;
-        }
-
-        .upload-animation i {
-            font-size: 4rem;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: bounce 2s infinite;
-        }
-
-        .more-projects-card h4 {
-            color: var(--text-primary);
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .more-projects-card p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .progress-indicator {
-            width: 200px;
-            height: 4px;
-            background: rgba(102, 126, 234, 0.2);
-            border-radius: 2px;
-            margin: 0 auto;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--primary-gradient);
-            border-radius: 2px;
-            animation: loading 3s infinite;
-        }
-
-        /* Animations */
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-15px);
-            }
-
-            60% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes shimmer {
-            0% {
-                left: -100%;
-            }
-
-            100% {
-                left: 100%;
-            }
-        }
-
-        @keyframes loading {
-            0% {
-                width: 0%;
-                transform: translateX(-200px);
-            }
-
-            50% {
-                width: 60%;
-            }
-
-            100% {
-                width: 100%;
-                transform: translateX(200px);
-            }
-        }
-
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .more-projects-card {
-                padding: 40px 20px;
-            }
-
-            .upload-animation i {
-                font-size: 3rem;
-            }
-
-            .more-projects-card h4 {
-                font-size: 1.5rem;
-            }
-
-            .more-projects-card p {
-                font-size: 1rem;
-            }
-        }
-
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
@@ -586,10 +502,13 @@
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 20px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
         }
 
         .modal-header {
             border-bottom: 1px solid var(--border-color);
+            padding: 25px 30px;
         }
 
         .modal-title {
@@ -597,11 +516,94 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-weight: 700;
         }
 
         .btn-close {
-            filter: invert(1);
+            filter: none;
+            background: none;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
+
+        .btn-close:hover {
+            transform: translateY(-2px) scale(1.05);
+            background: linear-gradient(145deg, rgba(245, 87, 108, 0.2), rgba(245, 87, 108, 0.1));
+            border-color: rgba(245, 87, 108, 0.3);
+            box-shadow: 0 15px 35px rgba(245, 87, 108, 0.2);
+        }
+
+        .btn-close:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .btn-close:focus {
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+            outline: none;
+        }
+
+
+        .btn-close::before,
+        .btn-close::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-close::before {
+            transform: rotate(45deg);
+        }
+
+        .btn-close::after {
+            transform: rotate(-45deg);
+        }
+
+        .btn-close:hover::before,
+        .btn-close:hover::after {
+            background: linear-gradient(135deg, #f5576c, #f093fb);
+            width: 18px;
+            box-shadow: 0 0 10px rgba(245, 87, 108, 0.4);
+        }
+
+
+        .btn-close:not(:disabled):not(.disabled):hover,
+        .btn-close:not(:disabled):not(.disabled):focus {
+            opacity: 1;
+        }
+
+        .modal-backdrop {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+
+        .modal-body {
+            padding: 30px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .modal-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 20px 30px;
+        }
+
+
 
         /* Mobile Responsive Design */
         @media (max-width: 1200px) {
@@ -612,10 +614,6 @@
             .avatar-circle {
                 width: 300px;
                 height: 300px;
-            }
-
-            .avatar-circle i {
-                font-size: 5rem;
             }
         }
 
@@ -638,10 +636,6 @@
                 height: 250px;
             }
 
-            .avatar-circle i {
-                font-size: 4rem;
-            }
-
             .section {
                 padding: 80px 0;
             }
@@ -652,6 +646,18 @@
         }
 
         @media (max-width: 768px) {
+
+            /* Disable parallax and hover animations on mobile */
+            .hero {
+                transform: none !important;
+            }
+
+            .premium-card:hover,
+            .skill-item:hover,
+            .project-card:hover {
+                transform: none !important;
+            }
+
             .navbar {
                 padding: 10px 0;
             }
@@ -711,10 +717,6 @@
                 height: 200px;
             }
 
-            .avatar-circle i {
-                font-size: 3rem;
-            }
-
             .section {
                 padding: 60px 0;
             }
@@ -731,6 +733,8 @@
 
             .skill-item {
                 padding: 20px;
+                margin-bottom: 20px;
+                /* Added spacing between skill cards */
             }
 
             .skill-icon {
@@ -748,9 +752,20 @@
             .contact-info {
                 padding: 30px 20px;
             }
+
+            /* Additional spacing for skills grid on mobile */
+            .skills-row {
+                gap: 20px;
+            }
+
+            .skills-col {
+                margin-bottom: 20px;
+            }
         }
 
         @media (max-width: 576px) {
+
+            /* Further disable animations and add spacing */
             .hero h1 {
                 font-size: 2rem;
             }
@@ -779,10 +794,6 @@
                 height: 180px;
             }
 
-            .avatar-circle i {
-                font-size: 2.5rem;
-            }
-
             .section-title {
                 font-size: 1.8rem;
             }
@@ -801,6 +812,8 @@
 
             .skill-item {
                 padding: 15px;
+                margin-bottom: 25px;
+                /* Increased spacing for smallest screens */
             }
 
             .skill-icon {
@@ -809,10 +822,6 @@
 
             .contact-info {
                 padding: 25px 15px;
-            }
-
-            .modal-dialog {
-                margin: 15px;
             }
         }
 
@@ -826,10 +835,6 @@
                 height: 150px;
             }
 
-            .avatar-circle i {
-                font-size: 2rem;
-            }
-
             .premium-btn {
                 padding: 8px 20px;
                 font-size: 0.8rem;
@@ -840,46 +845,10 @@
                 height: 40px;
                 font-size: 0.8rem;
             }
-        }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            to {
-                opacity: 0;
-                transform: translateY(-20px);
+            .skill-item {
+                margin-bottom: 30px;
+                /* Maximum spacing for very small screens */
             }
         }
 
@@ -1165,7 +1134,7 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div class="skill-item">
-                        <i class="fas fa-wind skill-icon"></i>
+                        <i class="fa-brands fa-laravel skill-icon"></i>
                         <h6>Laravel</h6>
                     </div>
                 </div>
